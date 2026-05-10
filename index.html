@@ -93,7 +93,7 @@
 
   /* ══ 第三卡 ══ */
   .card3 {
-    background-image: url('https://ik.imagekit.io/itssaturday/ABBY/03.jpg');
+    background-image: url('https://ik.imagekit.io/itssaturday/ABBY/03-new.jpg');
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: top center;
@@ -114,6 +114,8 @@
   .card3-svg {
     width: 18%;
     margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
   }
   .card3-couple-img {
     width: 86%;
@@ -173,10 +175,28 @@
     height: auto;
     display: block;
   }
-  .card4-overlay {
+  /* 第二層：插畫（擺動） */
+  .card4-illust {
     position: absolute;
     inset: 0;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card4-illust img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transform-origin: center center;
+    animation: sway 3.2s ease-in-out infinite;
+  }
+  /* 第三層：文字 PNG */
+  .card4-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
   }
   .card4-overlay img {
     width: 100%;
@@ -299,6 +319,18 @@
   .delay-3 { animation-delay: 0.4s; }
   .delay-4 { animation-delay: 0.55s; }
   .delay-5 { animation-delay: 0.7s; }
+
+  /* ══ 擺動動畫 ══ */
+  @keyframes sway {
+    0%   { transform: rotate(-6deg); }
+    50%  { transform: rotate(6deg); }
+    100% { transform: rotate(-6deg); }
+  }
+  .sway {
+    display: inline-block;
+    transform-origin: center bottom;
+    animation: sway 2.8s ease-in-out infinite;
+  }
 </style>
 </head>
 <body>
@@ -336,10 +368,13 @@
     誠摯邀請您前來見證我們的幸福，<br>
     也希望你能玩得開心！
   </p>
-  <img class="card3-svg anim anim-fade-in delay-2"
-    src="https://ik.imagekit.io/itssaturday/ABBY/03-1.svg"
-    alt="手勾手插畫"
-  />
+  <div class="card3-svg anim anim-fade-in delay-2">
+    <img class="sway"
+      src="https://ik.imagekit.io/itssaturday/ABBY/03-1.svg"
+      alt="手勾手插畫"
+      style="width:100%; height:auto; display:block;"
+    />
+  </div>
   <img class="card3-couple-img anim anim-scale-in"
     src="https://ik.imagekit.io/itssaturday/ABBY/03-2.png"
     alt="新郎新娘介紹"
@@ -372,10 +407,16 @@
 
 <!-- ══ 第四卡：婚禮流程 ══ -->
 <div class="card4" id="schedule">
+  <!-- 第一層：背景 -->
   <img class="card4-bg"
-    src="https://ik.imagekit.io/itssaturday/ABBY/04.jpg"
+    src="https://ik.imagekit.io/itssaturday/ABBY/04-new.jpg"
     alt="婚禮流程底圖"
   />
+  <!-- 第二層：插畫（擺動） -->
+  <div class="card4-illust">
+    <img src="https://ik.imagekit.io/itssaturday/ABBY/04-new-02.png" alt="插畫裝飾" />
+  </div>
+  <!-- 第三層：文字 PNG -->
   <div class="card4-overlay anim anim-fade-up">
     <img src="https://ik.imagekit.io/itssaturday/ABBY/04-1.png" alt="婚禮流程內容" />
   </div>
