@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>裕岷 & 知恩 婚禮邀請函</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Serif TC', serif;
+    background: #f7f6ed;
+    width: 100%;
+  }
+
+  img { display: block; }
+
+  /* ══ 第一卡 ══ */
+  .hero {
+    position: relative;
+    width: 100%;
+  }
+  .hero-photo {
+    width: 100%;
+    height: auto;
+  }
+  .hero-buttons {
+    position: absolute;
+    top: 79%;
+    left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0 15%;
+  }
+  .btn-primary {
+    display: block;
+    width: 100%;
+    background: #d4795a;
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    text-align: center;
+    padding: 14px 0;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #c0664a; }
+  .btn-secondary {
+    display: block;
+    width: 100%;
+    background: #fff;
+    color: #d4795a;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    text-align: center;
+    padding: 14px 0;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #d4795a;
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: #fdf0ec; }
+
+  /* ══ 第二卡 ══ */
+  .card2 {
+    position: relative;
+    width: 100%;
+  }
+  .card2-bg {
+    width: 100%;
+    height: auto;
+  }
+  /* 第二卡文字層 — PNG 疊在底圖上 */
+  .card2-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .card2-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* ══ 第三卡 ══ */
+  .card3 {
+    background-image: url('https://ik.imagekit.io/itssaturday/ABBY/03.jpg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: 100%;
+    padding: 8% 8% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .card3-text {
+    font-size: 14px;
+    color: #3a3a3a;
+    line-height: 2.2;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+  .card3-svg {
+    width: 18%;
+    margin-bottom: 16px;
+  }
+  .card3-couple-img {
+    width: 86%;
+    height: auto;
+    margin-bottom: 16px;
+  }
+  .card3-parents-section {
+    width: 86%;
+    margin-bottom: 16px;
+  }
+  .card3-parents-row {
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .card3-parent-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+  .card3-parent-label {
+    font-size: 13px;
+    color: #3a3a3a;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .card3-parent-names {
+    font-size: 15px;
+    color: #2a4a8a;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+  .card3-parent-photo {
+    width: 100%;
+    height: auto;
+  }
+  .card3-greeting-img {
+    width: calc(100% + 16%);
+    margin-left: -8%;
+    height: auto;
+    margin-top: 8px;
+  }
+
+  /* ══ 第四卡：流程 ══ */
+  .card4 {
+    background: #f7f6ed;
+    width: 100%;
+    position: relative;
+  }
+  .card4-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .card4-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .card4-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* ══ 第五卡：地點 ══ */
+  .card5 {
+    background: #f7f6ed;
+    width: 100%;
+    padding: 48px 8% 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .card5-venue-name {
+    font-size: 22px;
+    color: #2a2a2a;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .card5-address {
+    font-size: 14px;
+    color: #4a4a4a;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+  .card5-note {
+    font-size: 14px;
+    color: #d4795a;
+    letter-spacing: 0.06em;
+    margin-bottom: 28px;
+  }
+  .card5-map {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .card5-map iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    display: block;
+  }
+
+  /* ══ 表單卡 ══ */
+  .rsvp-section {
+    padding: 48px 8% 60px;
+    text-align: center;
+    background: #f7f6ed;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .rsvp-note {
+    font-size: 15px;
+    color: #5a4035;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    line-height: 1.8;
+  }
+  .form-wrapper {
+    border: 1px solid rgba(184,150,90,0.28);
+    background: #fff;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .form-wrapper iframe {
+    width: 100%;
+    height: 2200px;
+    border: none;
+    display: block;
+  }
+
+  /* ══ 動畫 keyframes ══ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-32px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideRight {
+    from { opacity: 0; transform: translateX(32px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* 初始隱藏，等 JS 加上 .visible 才播放 */
+  .anim {
+    opacity: 0;
+  }
+  .anim.visible {
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    animation-duration: 0.75s;
+  }
+  .anim-fade-up.visible    { animation-name: fadeUp; }
+  .anim-fade-in.visible    { animation-name: fadeIn; }
+  .anim-scale-in.visible   { animation-name: scaleIn; }
+  .anim-slide-left.visible  { animation-name: slideLeft; }
+  .anim-slide-right.visible { animation-name: slideRight; }
+
+  /* delay helpers */
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+  .delay-4 { animation-delay: 0.55s; }
+  .delay-5 { animation-delay: 0.7s; }
+</style>
+</head>
+<body>
+
+<!-- ══ 第一卡 ══ -->
+<div class="hero">
+  <img class="hero-photo"
+    src="https://ik.imagekit.io/itssaturday/ABBY/01.jpg"
+    alt="裕岷 & 知恩 婚紗照"
+  />
+  <div class="hero-buttons">
+    <a class="btn-primary anim anim-fade-up delay-1" href="#rsvp" onclick="event.preventDefault(); document.querySelector('#rsvp').scrollIntoView({behavior:'smooth'});">回覆出席表單 →</a>
+    <a class="btn-secondary anim anim-fade-up delay-2" href="#schedule" onclick="event.preventDefault(); document.querySelector('#schedule').scrollIntoView({behavior:'smooth'});">婚禮流程與詳細地址 →</a>
+  </div>
+</div>
+
+<!-- ══ 第二卡 ══ -->
+<div class="card2">
+  <img class="card2-bg"
+    src="https://ik.imagekit.io/itssaturday/ABBY/02.jpg"
+    alt="第二卡底圖"
+  />
+  <div class="card2-overlay anim anim-scale-in">
+    <img src="https://ik.imagekit.io/itssaturday/ABBY/02-1.png" alt="婚禮資訊" />
+  </div>
+</div>
+
+<!-- ══ 第三卡 ══ -->
+<div class="card3">
+  <p class="card3-text anim anim-fade-up">
+    我們決定一起共譜未來，<br>
+    攜手迎向每個日常。
+  </p>
+  <p class="card3-text anim anim-fade-up delay-1">
+    誠摯邀請您前來見證我們的幸福，<br>
+    也希望你能玩得開心！
+  </p>
+  <img class="card3-svg anim anim-fade-in delay-2"
+    src="https://ik.imagekit.io/itssaturday/ABBY/03-1.svg"
+    alt="手勾手插畫"
+  />
+  <img class="card3-couple-img anim anim-scale-in"
+    src="https://ik.imagekit.io/itssaturday/ABBY/03-2.png"
+    alt="新郎新娘介紹"
+  />
+  <div class="card3-parents-section anim anim-fade-up delay-1">
+    <div class="card3-parents-row">
+      <div class="card3-parent-group">
+        <span class="card3-parent-label">男方家長</span>
+        <span class="card3-parent-names">蘇文賢　陳慧芬</span>
+        <img class="card3-parent-photo"
+          src="https://ik.imagekit.io/itssaturday/ABBY/03-3-01.png"
+          alt="男方家長"
+        />
+      </div>
+      <div class="card3-parent-group">
+        <span class="card3-parent-label">女方家長</span>
+        <span class="card3-parent-names">鍾達文　趙麗玲</span>
+        <img class="card3-parent-photo"
+          src="https://ik.imagekit.io/itssaturday/ABBY/03-4-01.png"
+          alt="女方家長"
+        />
+      </div>
+    </div>
+  </div>
+  <img class="card3-greeting-img anim anim-fade-up"
+    src="https://ik.imagekit.io/itssaturday/ABBY/03-5.png"
+    alt="新人打招呼"
+  />
+</div>
+
+<!-- ══ 第四卡：婚禮流程 ══ -->
+<div class="card4" id="schedule">
+  <img class="card4-bg"
+    src="https://ik.imagekit.io/itssaturday/ABBY/04.jpg"
+    alt="婚禮流程底圖"
+  />
+  <div class="card4-overlay anim anim-fade-up">
+    <img src="https://ik.imagekit.io/itssaturday/ABBY/04-1.png" alt="婚禮流程內容" />
+  </div>
+</div>
+
+<!-- ══ 第五卡：地點 ══ -->
+<div class="card5">
+  <p class="card5-venue-name anim anim-fade-up">
+    台北 青青花園會館<br>
+    星空之森
+  </p>
+  <p class="card5-address anim anim-fade-up delay-1">臺北市士林區臨溪里至善路二段266巷32號</p>
+  <p class="card5-note anim anim-fade-up delay-2">「星空之森」廳別位於會館最裡面的位置唷！</p>
+  <div class="card5-map anim anim-fade-in delay-3">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.113104726834!2d121.54816707537853!3d25.098032377775002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ac3b78936b87%3A0x87561057caaacb5!2z6Z2S6Z2S6aOf5bCa6Iqx5ZyS5pyD6aSo!5e0!3m2!1szh-TW!2stw!4v1778425475160!5m2!1szh-TW!2stw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+
+<!-- ══ 表單卡 ══ -->
+<div class="rsvp-section" id="rsvp">
+  <p class="rsvp-note anim anim-fade-up">請麻煩於 5/30 填寫完畢</p>
+  <div class="form-wrapper anim anim-fade-up delay-1">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdxaBbq7s61eT1sQQVIxZcq332im8HAor-8Q0rkoK7_pWe3wQ/viewform?embedded=true"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      scrolling="no"
+      title="婚禮出席回覆表單"
+    >載入中…</iframe>
+  </div>
+</div>
+
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
