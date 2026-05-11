@@ -395,17 +395,22 @@
     align-items: center;
     gap: 16px;
   }
-  .cheers-emoji {
-    font-size: 40px;
-    line-height: 1;
-  }
-  .cheers-title {
+.cheers-title {
     font-family: 'Noto Serif JP', serif;
     font-size: 17px;
     color: #2a2a2a;
     letter-spacing: 0.15em;
     font-weight: 500;
     line-height: 1.8;
+  }
+  .cheers-svg {
+    width: 45%;
+    max-width: 180px;
+    height: auto;
+    margin-top: 8px;
+    display: inline-block;
+    transform-origin: center bottom;
+    animation: sway 2.8s ease-in-out infinite;
   }
   .cheers-body {
     font-family: 'Chiron GoRound TC', sans-serif;
@@ -416,6 +421,59 @@
   }
 
 
+
+  /* ══ 照片卡片 ══ */
+  .pic-card {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .pic-card-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .pic-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .pic-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+  }
+  .pic-layer-2 { z-index: 2; }
+  .pic-layer-3 { z-index: 3; }
+
+  /* 插畫擺動：進場後持續 */
+  .pic-illust img {
+    transform-origin: center bottom;
+  }
+  .pic-illust.visible img {
+    animation: fadeIn 0.8s ease both, sway 2.8s ease-in-out 0.8s infinite;
+  }
+
+  /* ══ 照片區 ══ */
+  .photos-section {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .photos-section .pic-card {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .photos-section .pic-card-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 </style>
 </head>
 <body>
@@ -459,7 +517,7 @@
 <div class="card2">
   <img class="card2-bg" src="https://ik.imagekit.io/itssaturday/ABBY/02.jpg" alt="第二卡底圖" />
   <div class="card2-overlay anim anim-scale-in">
-    <img src="https://ik.imagekit.io/itssaturday/ABBY/02-1.png" alt="婚禮資訊" />
+    <img src="https://ik.imagekit.io/itssaturday/ABBY/02-1-new-01.png" alt="婚禮資訊" />
   </div>
 </div>
 
@@ -473,7 +531,7 @@
   </p>
   <div class="card3-svg anim anim-fade-in delay-2">
     <img class="sway"
-      src="https://ik.imagekit.io/itssaturday/ABBY/03-1.svg"
+      src="https://ik.imagekit.io/itssaturday/ABBY/03-1-new.svg"
       alt="手勾手插畫"
       style="width:100%; height:auto; display:block;"
     />
@@ -486,13 +544,13 @@
     <div class="card3-parents-row">
       <div class="card3-parent-group">
         <span class="card3-parent-label">男方家長</span>
-        <span class="card3-parent-names">蘇文賢　陳慧芬</span>
+        <span class="card3-parent-names">蘇文賢　陳蕙芬</span>
         <img class="card3-parent-photo" src="https://ik.imagekit.io/itssaturday/ABBY/03-3-01-new.png" alt="男方家長" />
       </div>
       <div class="card3-parent-group">
         <span class="card3-parent-label">女方家長</span>
         <span class="card3-parent-names">鍾達文　趙麗玲</span>
-        <img class="card3-parent-photo" src="https://ik.imagekit.io/itssaturday/ABBY/03-4-01-new.png" alt="女方家長" />
+        <img class="card3-parent-photo" src="https://ik.imagekit.io/itssaturday/ABBY/03-4-01-new-1.png" alt="女方家長" />
       </div>
     </div>
   </div>
@@ -559,12 +617,12 @@
 
 <!-- ══ 開心來玩卡 ══ -->
 <div class="card-cheers anim anim-fade-up">
-  <p class="cheers-emoji">🥂</p>
   <p class="cheers-title">希望你開心來玩，安心回家</p>
   <p class="cheers-body">
     我們現場有準備些許酒水<br>
     建議可搭車前來唷！
   </p>
+  <img class="cheers-svg" src="https://ik.imagekit.io/itssaturday/ABBY/cheers.svg" alt="乾杯插圖" />
 </div>
 
 <!-- ══ 表單卡 ══ -->
@@ -577,6 +635,48 @@
       title="婚禮出席回覆表單"
     >載入中…</iframe>
   </div>
+
+<!-- ══ 照片區 ══ -->
+<section class="photos-section">
+
+  <!-- 卡片 A -->
+  <div class="pic-card">
+    <img class="pic-card-bg" src="https://ik.imagekit.io/itssaturday/ABBY/PICA-01.jpg" alt="" />
+    <div class="pic-layer anim anim-fade-in">
+      <img src="https://ik.imagekit.io/itssaturday/ABBY/PICA-02.png" alt="照片" />
+    </div>
+    <div class="pic-layer pic-layer-2 anim anim-fade-in delay-1">
+      <img src="https://ik.imagekit.io/itssaturday/ABBY/PICA-03.png" alt="照片" />
+    </div>
+    <div class="pic-layer pic-layer-3 pic-illust anim anim-fade-in delay-2">
+      <img src="https://ik.imagekit.io/itssaturday/ABBY/PICA-04.png" alt="花花插畫" />
+    </div>
+  </div>
+
+  <!-- 卡片 B -->
+  <div class="pic-card">
+    <img class="pic-card-bg" src="https://ik.imagekit.io/itssaturday/ABBY/PICB-01.jpg" alt="" />
+    <div class="pic-layer anim anim-fade-in">
+      <img src="https://ik.imagekit.io/itssaturday/ABBY/PICB-02.png" alt="照片" />
+    </div>
+    <div class="pic-layer pic-layer-2 pic-illust anim anim-fade-in delay-1">
+      <img src="https://ik.imagekit.io/itssaturday/ABBY/PICB-03.png" alt="蝴蝶插畫" />
+    </div>
+  </div>
+
+  <!-- 卡片 C -->
+  <div class="pic-card">
+    <img class="pic-card-bg" src="https://ik.imagekit.io/itssaturday/ABBY/PICC-01.jpg" alt="" />
+    <div class="pic-layer anim anim-fade-in">
+      <img src="https://ik.imagekit.io/itssaturday/ABBY/PICC-02.png" alt="照片" />
+    </div>
+    <div class="pic-layer pic-layer-2 pic-illust anim anim-fade-in delay-1">
+      <img src="https://ik.imagekit.io/itssaturday/ABBY/PICC-03.png" alt="雲朵插畫" />
+    </div>
+  </div>
+
+</section>
+
 </div>
 
 <script>
