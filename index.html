@@ -311,7 +311,7 @@
 
   /* ══ 表單卡 ══ */
   .rsvp-section {
-    padding: 48px 8% 60px;
+    padding: 48px 8% 120px;
     text-align: center;
     background: #f7f6ed;
     border-top: 1px solid rgba(0,0,0,0.06);
@@ -460,6 +460,7 @@
   .photos-section {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -473,6 +474,109 @@
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  /* ══ 原生表單 ══ */
+  .native-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .form-label {
+    font-family: 'Chiron GoRound TC', sans-serif;
+    font-size: 14px;
+    color: #2a2a2a;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+  .required { color: #d4795a; }
+  .form-input,
+  .form-textarea {
+    font-family: 'Chiron GoRound TC', sans-serif;
+    font-size: 14px;
+    color: #2a2a2a;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    padding: 12px 14px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: #d4795a;
+  }
+  .form-textarea { resize: none; line-height: 1.8; }
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .radio-label {
+    font-family: 'Chiron GoRound TC', sans-serif;
+    font-size: 14px;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+  }
+  .radio-label input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #d4795a;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .form-submit {
+    font-family: 'Chiron GoRound TC', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: #fff;
+    background: #d4795a;
+    border: none;
+    padding: 15px 0;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .form-submit:hover { background: #c0664a; }
+
+  /* 感謝畫面 */
+  .form-thanks {
+    text-align: center;
+    padding: 52px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .thanks-emoji { font-size: 48px; line-height: 1; }
+  .thanks-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    color: #2a2a2a;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+  }
+  .thanks-body {
+    font-family: 'Chiron GoRound TC', sans-serif;
+    font-size: 14px;
+    color: #5a5a5a;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
   }
 </style>
 </head>
@@ -517,7 +621,7 @@
 <div class="card2">
   <img class="card2-bg" src="https://ik.imagekit.io/itssaturday/ABBY/02.jpg" alt="第二卡底圖" />
   <div class="card2-overlay anim anim-scale-in">
-    <img src="https://ik.imagekit.io/itssaturday/ABBY/02-1-new-01.png" alt="婚禮資訊" />
+    <img src="https://ik.imagekit.io/itssaturday/ABBY/02-1-new-03.png" alt="婚禮資訊" />
   </div>
 </div>
 
@@ -544,13 +648,13 @@
     <div class="card3-parents-row">
       <div class="card3-parent-group">
         <span class="card3-parent-label">男方家長</span>
-        <span class="card3-parent-names">蘇文賢　陳蕙芬</span>
+        <span class="card3-parent-names">蘇文賢　陳惠芬</span>
         <img class="card3-parent-photo" src="https://ik.imagekit.io/itssaturday/ABBY/03-3-01-new.png" alt="男方家長" />
       </div>
       <div class="card3-parent-group">
         <span class="card3-parent-label">女方家長</span>
         <span class="card3-parent-names">鍾達文　趙麗玲</span>
-        <img class="card3-parent-photo" src="https://ik.imagekit.io/itssaturday/ABBY/03-4-01-new-2.png" alt="女方家長" />
+        <img class="card3-parent-photo" src="https://ik.imagekit.io/itssaturday/ABBY/03-4-01-new-3.png" alt="女方家長" />
       </div>
     </div>
   </div>
@@ -628,12 +732,74 @@
 <!-- ══ 表單卡 ══ -->
 <div class="rsvp-section" id="rsvp">
   <p class="rsvp-note anim anim-fade-up">請麻煩於 5/30 填寫完畢</p>
-  <div class="form-wrapper anim anim-fade-up delay-1">
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSdxaBbq7s61eT1sQQVIxZcq332im8HAor-8Q0rkoK7_pWe3wQ/viewform?embedded=true"
-      frameborder="0" marginheight="0" marginwidth="0" scrolling="no"
-      title="婚禮出席回覆表單"
-    >載入中…</iframe>
+
+  <form class="native-form anim anim-fade-up delay-1" id="weddingForm">
+
+    <div class="form-group">
+      <label class="form-label">姓名 <span class="required">*</span></label>
+      <input class="form-input" type="text" name="entry.1314273606" required placeholder="請輸入姓名" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">電話 <span class="required">*</span></label>
+      <input class="form-input" type="tel" name="entry.1644711755" required placeholder="請輸入電話" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">與新人關係 <span class="required">*</span></label>
+      <div class="radio-group">
+        <label class="radio-label"><input type="radio" name="entry.314452664" value="女方親戚" required /> 女方親戚</label>
+        <label class="radio-label"><input type="radio" name="entry.314452664" value="女方朋友" /> 女方朋友</label>
+        <label class="radio-label"><input type="radio" name="entry.314452664" value="女方父母朋友" /> 女方父母朋友</label>
+        <label class="radio-label"><input type="radio" name="entry.314452664" value="男方親戚" /> 男方親戚</label>
+        <label class="radio-label"><input type="radio" name="entry.314452664" value="男方朋友" /> 男方朋友</label>
+        <label class="radio-label"><input type="radio" name="entry.314452664" value="男方父母朋友" /> 男方父母朋友</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">是否會出席婚禮 <span class="required">*</span></label>
+      <div class="radio-group">
+        <label class="radio-label"><input type="radio" name="entry.1318922900" value="我會出席！" required /> 我會出席！</label>
+        <label class="radio-label"><input type="radio" name="entry.1318922900" value="有事不克前來🥹給予祝福" /> 有事不克前來🥹給予祝福</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">需要收到喜帖嗎 <span class="required">*</span></label>
+      <div class="radio-group">
+        <label class="radio-label"><input type="radio" name="entry.1793654562" value="需要~我要留做紀念" required /> 需要～我要留做紀念</label>
+        <label class="radio-label"><input type="radio" name="entry.1793654562" value="不需要~愛護大自然與環保" /> 不需要～愛護大自然與環保</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">出席人數（包含你）<span class="required">*</span></label>
+      <input class="form-input" type="number" name="entry.256302640" required placeholder="請輸入人數" min="1" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">所有同行賓客姓名</label>
+      <input class="form-input" type="text" name="entry.242958698" placeholder="選填" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">特殊需求</label>
+      <input class="form-input" type="text" name="entry.1952070387" placeholder="例如：素食、需要兒童座椅" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">有什麼話要對新人說的嗎 😍</label>
+      <textarea class="form-textarea" name="entry.498549414" placeholder="選填，留言給裕岷 & 知恩！" rows="3"></textarea>
+    </div>
+
+    <button class="form-submit" type="submit">送出回覆</button>
+  </form>
+
+  <div class="form-thanks" id="formThanks" style="display:none;">
+    <p class="thanks-emoji">🥂</p>
+    <p class="thanks-title">謝謝你的回覆！</p>
+    <p class="thanks-body">我們收到了，婚禮見！</p>
   </div>
 
 <!-- ══ 照片區 ══ -->
@@ -720,6 +886,41 @@
       btn.classList.remove('playing');
     }
   });
+
+  // ── 原生表單送出 ──
+  const weddingForm = document.getElementById('weddingForm');
+  const formThanks = document.getElementById('formThanks');
+  if (weddingForm) {
+    weddingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(weddingForm);
+      const submitBtn = weddingForm.querySelector('.form-submit');
+      submitBtn.textContent = '送出中…';
+      submitBtn.disabled = true;
+
+      const params = new URLSearchParams(formData).toString();
+      const url = 'https://docs.google.com/forms/d/e/1FAIpQLSdxaBbq7s61eT1sQQVIxZcq332im8HAor-8Q0rkoK7_pWe3wQ/formResponse';
+
+      try {
+        await fetch(url + '?' + params, {
+          method: 'POST',
+          mode: 'no-cors',
+        });
+      } catch(e) {}
+
+      // Show thanks regardless of fetch result (no-cors always throws)
+      weddingForm.style.transition = 'opacity 0.4s ease';
+      weddingForm.style.opacity = '0';
+      setTimeout(() => {
+        weddingForm.style.display = 'none';
+        formThanks.style.display = 'flex';
+        formThanks.style.opacity = '0';
+        formThanks.style.transition = 'opacity 0.4s ease';
+        setTimeout(() => { formThanks.style.opacity = '1'; }, 50);
+      }, 400);
+    });
+  }
+
 </script>
 </body>
 </html>
